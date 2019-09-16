@@ -124,6 +124,7 @@ void init() {
 }
 
 void init_colors() { 
+                                              //rgb
     init_pair(1, COLOR_BLUE,    COLOR_BLACK); //001
     init_pair(2, COLOR_GREEN,   COLOR_BLACK); //010
     init_pair(3, COLOR_CYAN,    COLOR_BLACK); //011
