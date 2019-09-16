@@ -5,8 +5,6 @@ void init();
 void init_colors();
 void finish();
 
-WINDOW* main_win;
-
 struct point {
     int x, y;
 };
@@ -47,11 +45,11 @@ int main() {
 
     while(true) {
         int w, h;
-        getmaxyx(main_win, h, w);
+        getmaxyx(stdscr, h, w);
 
         char head_char = '#';
 
-        int temp = wgetch(main_win);
+        int temp = wgetch(stdscr);
         if (temp != ERR)
             c = temp;
         switch(c) {
@@ -109,7 +107,7 @@ int main() {
 }
 
 void init() {
-    main_win = initscr();
+    initscr();
     start_color();
     init_colors();
     curs_set(0);
