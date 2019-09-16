@@ -33,6 +33,11 @@ void shift_snake(struct snake* snake) {
     snake->tail[0] = snake->head;
 }
 
+void cleanup_snake(struct snake* snake) {
+    free(snake->tail);
+    free(snake);
+}
+
 int main() {
     init();
 
@@ -101,7 +106,9 @@ int main() {
     }
     
     getch();
-    
+        
+    cleanup_snake(m_snake);
+    m_snake = NULL;
     finish();
     return 0;
 }
