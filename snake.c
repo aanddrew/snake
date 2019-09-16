@@ -43,13 +43,15 @@ int main() {
 
     struct snake* m_snake = create_snake();
     int c;
+	
+	int w, h;
+	getmaxyx(stdscr, h, w);
 
     struct point fruit_location;
-    fruit_location.x = rand() % 30;
-    fruit_location.y = rand() % 30;
+    fruit_location.x = rand() % w;
+    fruit_location.y = rand() % h;
 
     while(true) {
-        int w, h;
         getmaxyx(stdscr, h, w);
 
         char head_char = '#';
