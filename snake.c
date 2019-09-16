@@ -38,14 +38,12 @@ void cleanup_snake(struct snake* snake) {
     free(snake);
 }
 
-int main() {
-    init();
-
+void play_game() {
     struct snake* m_snake = create_snake();
     int c;
-	
-	int w, h;
-	getmaxyx(stdscr, h, w);
+    
+    int w, h;
+    getmaxyx(stdscr, h, w);
 
     struct point fruit_location;
     fruit_location.x = rand() % w;
@@ -108,11 +106,15 @@ int main() {
         
         refresh();
     }
-    
-    getch();
-        
     cleanup_snake(m_snake);
     m_snake = NULL;
+}
+
+int main() {
+    init();
+    
+    play_game();
+        
     finish();
     return 0;
 }
