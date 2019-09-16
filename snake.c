@@ -81,6 +81,9 @@ int main() {
         }
         clear();
 
+        m_snake->head.x = (m_snake->head.x + w) % w;
+        m_snake->head.y = (m_snake->head.y + h) % h;
+
         //eating fruit
         if(m_snake->head.x == fruit_location.x && m_snake->head.y == fruit_location.y) {
             m_snake->size_tail++;
