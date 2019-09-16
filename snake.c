@@ -95,7 +95,7 @@ int main() {
         attrset(COLOR_PAIR(7));
         mvprintw(m_snake->head.y, m_snake->head.x, "%c", head_char);
         for(int i = 0; i < m_snake->size_tail; i++) {
-            mvprintw(m_snake->tail[i].y, m_snake->tail[i].x, "*");
+            mvprintw(m_snake->tail[i].y, m_snake->tail[i].x, "~");
         }
 
         shift_snake(m_snake);
