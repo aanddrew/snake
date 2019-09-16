@@ -38,7 +38,8 @@ void cleanup_snake(struct snake* snake) {
     free(snake);
 }
 
-void play_game() {
+//returns 0 if player died, 1 if they won.
+int play_game() {
     struct snake* m_snake = create_snake();
     int c;
     
@@ -98,6 +99,13 @@ void play_game() {
             mvprintw(m_snake->tail[i].y, m_snake->tail[i].x, "~");
         }
 
+        //killing snake
+        for(int i = 0; i < m_snake->size_tail; i++) {
+            if (m_snake->head.x == m_snake->tail[i].x &&
+                m_snake->head.y == m_snake->tail[i].y)
+                return 0;
+        }
+
         shift_snake(m_snake);
         
         //printing fruit
@@ -106,14 +114,17 @@ void play_game() {
         
         refresh();
     }
+
     cleanup_snake(m_snake);
     m_snake = NULL;
+
+    return 1;
 }
 
 int main() {
     init();
     
-    play_game();
+    int result = play_game();
         
     finish();
     return 0;
