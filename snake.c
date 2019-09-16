@@ -85,8 +85,8 @@ int main() {
         if(m_snake->head.x == fruit_location.x && m_snake->head.y == fruit_location.y) {
             m_snake->size_tail++;
             m_snake->tail[0] = m_snake->head;
-            fruit_location.x = rand() % 30;
-            fruit_location.y = rand() % 30;
+            fruit_location.x = rand() % w;
+            fruit_location.y = rand() % h;
         }
 
         //printing snake
